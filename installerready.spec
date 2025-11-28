@@ -3,7 +3,7 @@
 block_cipher = None
 
 a = Analysis(
-    ['InstallerReady.py'],
+    ['installerready.py'],
     pathex=[],
     binaries=[],
     datas=[],
