@@ -13,7 +13,7 @@ OWNER = "coltonsr77"
 API_BASE = f"https://api.github.com/users/{OWNER}/repos"
 
 
-class InstallerReadyApp(tk.Tk):
+class InstallerReady(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title(f"InstallerReady v{VERSION}")
@@ -178,5 +178,5 @@ class InstallerReadyApp(tk.Tk):
 
 
 if __name__ == "__main__":
-    app = InstallerReadyApp()
+    app = InstallerReady()
     app.mainloop()
