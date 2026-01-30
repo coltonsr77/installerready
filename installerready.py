@@ -82,7 +82,7 @@ class InstallerReadyApp(tk.Tk):
         text = (
             f"InstallerReady v{VERSION}\n\n"
             "Created by coltonsr77\n\n"
-            "Use this tool to download GitHub projects easily.\n"
+            "Use this tool to download GitHub projects easily.\n\n"
             "You can download any repository via URL or from coltonsr77`s projects list."
         )
         tk.Label(self.tab_about, text=text, justify="left", wraplength=700).pack(padx=20, pady=20)
