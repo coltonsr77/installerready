@@ -8,7 +8,6 @@ a = Analysis(
     binaries=[],
     datas=[],
     hiddenimports=[
-        'customtkinter',
         'tkinter',
         'requests',
         'os',
