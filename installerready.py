@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
+from github import Github
 import threading
 import requests
 import os
@@ -108,6 +109,30 @@ class InstallerReady(tk.Tk):
     def start_install_project(self, repo_name):
         url = f"https://github.com/{OWNER}/{repo_name}"
         threading.Thread(target=self.download_and_extract, args=(url,), daemon=True).start()
+
+    def get_default_branch(repo_url):
+        if url.startswith("http"):
+            parts = repo_url.rstrip("/").split("/")
+            owner, repo = parts[-2], parts[-1]
+        elif url.startswith("git@"):
+            parts = repo_url.split(":")[-1].replace(".git", "").split("/")
+            owner, repo = parts[0], parts[1]
+        else:
+            raise ValueError("Invalid GitHub repository URL format.")
+
+        # Remove .git suffix if present
+        repo = repo.replace(".git", "")
+
+        # GitHub API endpoint
+        api_url = f"https://api.github.com/repos/{owner}/{repo_name}"
+
+        # Send GET request
+        response = requests.get(api_url, timeout=10)
+        response.raise_for_status()  # Raise error for HTTP issues
+
+        data = response.json()
+        return data.get("default_branch")
+        return None
 
     def download_and_extract(self, repo_url):
         try:
