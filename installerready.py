@@ -138,7 +138,7 @@ class InstallerReady(tk.Tk):
         try:
             self.update_progress(0.05, "Downloading repository...")
             repo_name = self.get_repo_name(repo_url)
-            zip_url = f"{repo_url}/archive/refs/heads/main.zip"
+            zip_url = f"{repo_url}/archive/refs/heads/master.zip"
             r = requests.get(zip_url, stream=True)
             r.raise_for_status()
 
