@@ -9,7 +9,7 @@ import io
 import re
 import subprocess
 
-VERSION = "0.4.3"
+VERSION = "0.4.4"
 OWNER = "coltonsr77"
 API_BASE = f"https://api.github.com/users/{OWNER}/repos"
 
