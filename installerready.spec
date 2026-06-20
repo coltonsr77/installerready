@@ -1,4 +1,3 @@
-
 block_cipher = None
 
 a = Analysis(
