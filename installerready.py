@@ -131,7 +131,7 @@ class InstallerReady(tk.Tk):
         response.raise_for_status()  # Raise error for HTTP issues
 
         data = response.json()
-        return data.get("default_branch")
+        return data.get("default_branch") # Looks for the default branch.
         return None
 
     def download_and_extract(self, repo_url):
