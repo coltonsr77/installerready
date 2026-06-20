@@ -6,7 +6,7 @@ a = Analysis(
     binaries=[],
     datas=[],
     hiddenimports=[
-        'PyGitHub',
+        'PyGithub',
         'tkinter',
         'requests',
         'os',
