@@ -1,4 +1,3 @@
-# -*- mode: python ; coding: utf-8 -*-
 
 block_cipher = None
 
@@ -48,5 +47,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='InstallerReady0.4.3'
+    name='InstallerReady0.4.4'
 )
