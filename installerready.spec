@@ -47,5 +47,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='InstallerReady0.4.4'
+    name='InstallerReady0.5-Beta'
 )
