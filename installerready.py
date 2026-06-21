@@ -101,7 +101,7 @@ class InstallerReady(tk.Tk):
 
     def start_install_from_url(self):
         url = self.repo_entry.get().strip()
-        if not url or url.lower().startswith("enter github"):
+        if not url or url.lower().startswith("Enter github"):
             messagebox.showwarning("Missing URL", "Please enter a valid GitHub repository URL.")
             return
         threading.Thread(target=self.download_and_extract, args=(url,), daemon=True).start()
