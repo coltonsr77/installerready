@@ -1,29 +1,51 @@
 name: Build
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  Build:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
 
     steps:
-    - name: Obtain latest version of the repository
-      uses: actions/checkout@v7
-    - name: Set up Python 3
-      uses: actions/setup-python@v6
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.14.6'
-    - name: Install requirements with PIP
+        python-version: '3.12'
+
+    - name: Cache pip
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install requirements
       run: pip install -r requirements.txt
-    - name: Install pyinstaller
-      run: pip install git+https://github.com/pyinstaller/pyinstaller.git
+
+    - name: Run tests
+      run: |
+        pytest -q
+
+    - name: Install PyInstaller
+      run: pip install pyinstaller
+
     - name: Build InstallerReady
       run: pyinstaller installerready.spec
+
     - name: Publish Build Artifacts
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@v3
       with:
         name: '${{ matrix.os }}-GUI'
         path: dist
