@@ -4,7 +4,7 @@ A python 3 app that allows users to download programs/apps.
 
 https://github.com/coltonsr77/Python3-windows-installer uses InstallerReady as a helper tool for downloading apps or apps that`s needed.
 
-Download Page: https://coltonsr77.net/Download (Updated!)
+Download Page: https://coltonsr77.net/Download/index.html (Updated!)
 
 Usage
 -----
