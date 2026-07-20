@@ -101,7 +101,7 @@ class InstallerReady(tk.Tk):
         self.folder_label = tk.Label(self.tab_github, text=f"Download Path: {self.install_path}")
         self.folder_label.pack()
 
-        # Progress bar
+        # Progress Bar
         self.progress = ttk.Progressbar(self.tab_github, length=400, mode='determinate')
         self.progress.pack(pady=20)
         self.progress["maximum"] = 100
@@ -140,7 +140,7 @@ class InstallerReady(tk.Tk):
             "You can download any repository via URL or from coltonsr77`s projects list."
         )
         tk.Label(self.tab_about, text=text, justify="left", wraplength=700).pack(padx=20, pady=20)
-        # View Log button to open the local log file if it exists
+        # View Log button to open the local log file if it exists.
         def _open_log_if_exists():
             log_path = os.path.expanduser("~/.installerready.log")
             if os.path.exists(log_path):
@@ -261,7 +261,7 @@ class InstallerReady(tk.Tk):
         m = re.search(r"/releases/(?:tag/)?([^/]+)$", repo_url)
         try:
             if "/releases/latest" in repo_url:
-                # latest release
+                # Latest release
                 api = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
                 resp = self.api_request('GET', api, timeout=10)
                 data = resp.json()
