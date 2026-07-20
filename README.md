@@ -34,5 +34,3 @@ Notes
 - The app requires Python 3 and the `requests` package (`pip install -r requirements.txt`).
 - `tkinter` is used for the GUI and is included with most Python installations (on Linux you may need the system package `python3-tk`).
 - Error details are appended to `~/.installerready.log` and the app will offer to open the log when an error occurs.
-
-If you want me to add a packaged release script or CI workflow for building, tell me which target platforms to support.
