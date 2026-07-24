@@ -25,7 +25,7 @@ class InstallerReady(tk.Tk):
         self.geometry("750x550")
         self.resizable(False, False)
         self.install_path = os.getcwd()
-        # Optional: read GitHub token from environment to increase rate limits
+        # Optional: read GitHub token from environment to increase rate limits.
         self.gh_token = os.environ.get("GITHUB_TOKEN")
         self.project_buttons = []
         self.projects = []
@@ -257,7 +257,7 @@ class InstallerReady(tk.Tk):
         if not owner or not repo:
             return None, None
 
-        # If user supplied a releases/tag URL, try to extract tag
+        # If user supplied a releases/tag URL, try to extract tag.
         m = re.search(r"/releases/(?:tag/)?([^/]+)$", repo_url)
         try:
             if "/releases/latest" in repo_url:
@@ -280,10 +280,10 @@ class InstallerReady(tk.Tk):
                     data = resp.json()
                     return (data.get("zipball_url") or f"https://github.com/{owner}/{repo}/archive/refs/tags/{tag}.zip", tag)
                 except Exception:
-                    # fallback to github tag archive
+                    # fallback to github tag archive.
                     return (f"https://github.com/{owner}/{repo}/archive/refs/tags/{tag}.zip", tag)
             else:
-                # Not a release URL — return None so caller falls back to branch archives
+                # Not a release URL — return None so caller falls back to branch archives.
                 return None, None
         except Exception:
             return None, None
@@ -293,8 +293,8 @@ class InstallerReady(tk.Tk):
             self.update_progress(0.05, "Preparing download...")
             repo_name = self.get_repo_name(repo_url)
 
-            # Prefer release/tag archives when URL indicates releases or tag
-            # Disable UI controls while downloading
+            # Prefer release/tag archives when URL indicates releases or tag.
+            # Disable UI controls while downloading.
             self.after(0, lambda: self.set_ui_enabled(False))
 
             archive_url, label = self.get_archive_url(repo_url)
@@ -305,7 +305,7 @@ class InstallerReady(tk.Tk):
             else:
                 branch = self.get_default_branch(repo_url) or None
 
-                # If we couldn't determine the default branch, try common names
+                # If we couldn't determine the default branch, try common names.
                 if not branch:
                     for try_branch in ("main", "master"):
                         check_url = f"{repo_url}/archive/refs/heads/{try_branch}.zip"
