@@ -13,7 +13,7 @@ from datetime import datetime
 import sys
 import time
 
-VERSION = "0.5-Beta"
+VERSION = "0.5"
 OWNER = "coltonsr77"
 API_BASE = f"https://api.github.com/users/{OWNER}/repos"
 
